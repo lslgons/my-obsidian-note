@@ -11,10 +11,14 @@
             "id": "04deb87cdeeec53a",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "51_AI노트/01_호스트 IP 메모.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "새 탭"
+              "title": "01_호스트 IP 메모"
             }
           }
         ]
@@ -206,6 +210,8 @@
   },
   "active": "04deb87cdeeec53a",
   "lastOpenFiles": [
+    "51_AI노트/01_호스트 IP 메모.md",
+    "51_AI노트/00_목차.md",
     "01_학습노트/Kubernetes/쿠버네티스 설치/main go c9a6e903d4e64883ab8b1a863070f51d.md",
     "01_학습노트/Kubernetes/쿠버네티스 설치/Kubernetes on AWS 25634a7570164870a4e2cfc149d36829.md",
     "01_학습노트/Kubernetes/쿠버네티스 설치/HA Proxy - 고가용성 클러스터 975e8b3866d244ca829c2282ed63cb43.md",
@@ -235,8 +241,6 @@
     "02_ETFlow/04_한국투자 OpenAPI.md",
     "02_ETFlow/03_국내 상장 대상 ETF 목록.md",
     "02_ETFlow/02_투자 전략.md",
-    "02_ETFlow/01_서비스 주소.md",
-    "02_ETFlow/00_목차.md",
     "images/03_여행_여행_(2023) 오사카_3일차_Untitled.png",
     "images/03_여행_여행_(2023) 오사카_3일차_Untitled 2.png",
     "images/03_여행_여행_(2023) 오사카_3일차_Untitled 1.png",

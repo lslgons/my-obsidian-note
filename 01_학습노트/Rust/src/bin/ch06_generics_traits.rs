@@ -119,14 +119,13 @@ fn main() {
     // ── 라이프타임 ───────────────────────────────────────────────
     let s1 = String::from("긴 문자열입니다");
     {
-        let s2 = String::from("짧음");
+        let s2 = String::from("짧음11111111111111111111111");
         let longer_word = longer(&s1, &s2);
         println!("더 긴 문자열: {longer_word}");
     } // s2가 여기서 drop됩니다 — 이후 longer_word는 사용 불가!
 
     // 아래의 주석을 풀면 에러: "s2 does not live long enough"
-    // println!("{}", longer(&s1, "블록 밖에서는 이렇게 쓰면 안전")); // 이건 OK: 'static 문자열 리터럴
-
+    //println!("{}", longer(&s1, "블록 밖에서는 이렇게 쓰면 안전")); // 이건 OK: 'static 문자열 리터럴
     // ── 연습 과제 ────────────────────────────────────────────────
     // 1) 제네릭 함수 second_element<T>(list: &[T]) -> Option<&T>를 만들어 보세요.
     // 2) Animal 트레이트(sound(&self) -> String)를 만들고 Dog, Cat을 구현한 뒤
