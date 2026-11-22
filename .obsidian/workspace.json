@@ -1,0 +1,249 @@
+{
+  "main": {
+    "id": "640bcf867e3e7eb6",
+    "type": "split",
+    "children": [
+      {
+        "id": "876444d2498bcd4d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d060c3edfc25e531",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "작성지침.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "작성지침"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8fccf572f7b19dff",
+    "type": "split",
+    "children": [
+      {
+        "id": "22dfda1f2b90a057",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "76578bce687f4c75",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "5c90df76a1eb2fd9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "828e793c34314002",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "북마크"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "cc5a0e77a78a54ea",
+    "type": "split",
+    "children": [
+      {
+        "id": "0f9109a16a68e446",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a62dbceb52df916",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "작성지침.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "작성지침 의 백링크"
+            }
+          },
+          {
+            "id": "322e28a9e28cc2a6",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "작성지침.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "작성지침 의 나가는 링크"
+            }
+          },
+          {
+            "id": "e88ec8e7d4340a9c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "태그"
+            }
+          },
+          {
+            "id": "354cb760b3d89920",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "모든 속성"
+            }
+          },
+          {
+            "id": "a6fade31738f8d1e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "작성지침.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "작성지침 의 개요"
+            }
+          },
+          {
+            "id": "ed023b4d983a8692",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {
+                "file": "작성지침.md"
+              },
+              "icon": "lucide-file-signature",
+              "title": "각주"
+            }
+          },
+          {
+            "id": "44f21e999e58ebb4",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 6
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "d060c3edfc25e531",
+  "lastOpenFiles": [
+    "내 보관함/Spring boot/Tips.md",
+    "내 보관함/Spring boot/Spring Cloud Stream.md",
+    "내 보관함/Spring boot/Spring Data.md",
+    "내 보관함/Spring boot/Spring Fox.md",
+    "내 보관함/Spring boot/Spring WebFlux.md",
+    "내 보관함/Spring boot/@SpringBootApplication.md",
+    "내 보관함/Spring boot/Spring boot.md",
+    "내 보관함/Spring boot",
+    "내 보관함/AWS/AWS.md",
+    "내 보관함/AWS",
+    "내 보관함/Scala/함수형 객체.md",
+    "내 보관함/Scala/타입과 연산.md",
+    "내 보관함/Scala/Scala 개요.md",
+    "내 보관함/Micro Service Architecture (MSA)/Service Mesh.md",
+    "내 보관함/Micro Service Architecture (MSA)/콘웨이의 법칙.md",
+    "내 보관함/Scala/Scala.md",
+    "내 보관함/Scala",
+    "내 보관함/Frontend/Vue.js.md",
+    "내 보관함/Micro Service Architecture (MSA)/Chain of failure.md",
+    "내 보관함/Frontend/Quasar Framework.md",
+    "내 보관함/Frontend/Frontend.md",
+    "내 보관함/Frontend",
+    "내 보관함/Micro Service Architecture (MSA)/마이크로서비스 디자인패턴.md",
+    "내 보관함/Micro Service Architecture (MSA)",
+    "내 보관함/Docker.md",
+    "내 보관함/Next.js.md",
+    "내 보관함/Scala.md",
+    "내 보관함/AZ-104.md",
+    "내 보관함/Data Engineering.md",
+    "내 보관함/AWS.md",
+    "내 보관함/Kubernetes.md",
+    "무제.base",
+    "무제.canvas",
+    "내 보관함/무제.base",
+    "무제"
+  ]
+}
