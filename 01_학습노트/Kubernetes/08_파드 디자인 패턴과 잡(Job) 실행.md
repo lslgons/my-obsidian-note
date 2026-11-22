@@ -1,0 +1,245 @@
+# 파드 디자인 패턴과 잡(Job) 실행
+
+# 1. 사이드카 컨테이너
+
+- 오토바이의 사이드카에서 유래
+- 이륜차에 기존 기능을 향상/확장하는데 사용
+- 파드의 파일시스템을 공유하는 형태
+
+![Untitled](/images/01_%ED%95%99%EC%8A%B5%EB%85%B8%ED%8A%B8_Kubernetes_%ED%8C%8C%EB%93%9C%20%EB%94%94%EC%9E%90%EC%9D%B8%20%ED%8C%A8%ED%84%B4%EA%B3%BC%20%EC%9E%A1%28Job%29%20%EC%8B%A4%ED%96%89_Untitled.png)
+
+사이드카 컨테이너 예제
+
+```yaml
+# nginx-sidecar.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-sidecar
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: varlognginx
+      mountPath: /var/log/nginx
+  - name: sidecar-access
+    image: busybox
+    args: [/bin/sh, -c, 'tail -n+1 -f /var/log/nginx/access.log']
+    volumeMounts:
+    - name: varlognginx
+      mountPath: /var/log/nginx
+  - name: sidecar-error
+    image: busybox
+    args: [/bin/sh, -c, 'tail -n+1 -f /var/log/nginx/error.log']
+    volumeMounts:
+    - name: varlognginx
+      mountPath: /var/log/nginx
+  volumes:
+  - name: varlognginx
+    emptyDir: {}
+```
+
+애플리케이션 배포
+
+```yaml
+vim nginx-sidecar.yaml
+kubectl apply -f nginx-sidecar.yaml
+```
+
+액세스 로그를  남기도록 유도
+
+```yaml
+kubectl exec nginx-sidecar -c nginx -- curl 127.0.0.1 -s
+```
+
+액세스 로그는 sidecar-access 에서 보도록 한다.
+
+```yaml
+# kubectl logs nginx-sidecar sidecar-access
+127.0.0.1 - - [06/Nov/2021:07:56:12 +0000] "GET / HTTP/1.1" 200 615 "-" "curl/7.64.0" "-"
+127.0.0.1 - - [06/Nov/2021:07:56:13 +0000] "GET / HTTP/1.1" 200 615 "-" "curl/7.64.0" "-"
+127.0.0.1 - - [06/Nov/2021:07:56:15 +0000] "GET / HTTP/1.1" 200 615 "-" "curl/7.64.0" "-"
+```
+
+# 2. 어댑터 컨테이너
+
+- 이질적인 어플리케이션을 적용가능하도록 개선하는 컨테이너
+- 원본 컨테이너에 대한 변경사항없이 현재 컨테이너 기능을 시스템에 적용시키는 기능
+
+![Untitled](/images/01_%ED%95%99%EC%8A%B5%EB%85%B8%ED%8A%B8_Kubernetes_%ED%8C%8C%EB%93%9C%20%EB%94%94%EC%9E%90%EC%9D%B8%20%ED%8C%A8%ED%84%B4%EA%B3%BC%20%EC%9E%A1%28Job%29%20%EC%8B%A4%ED%96%89_Untitled%201.png)
+
+어댑터 컨테이너 예제
+
+[https://github.com/bbachi/k8s-adaptor-container-pattern](https://github.com/bbachi/k8s-adaptor-container-pattern)
+
+[k8s-adaptor-container-pattern-master.zip](%ED%8C%8C%EB%93%9C%20%EB%94%94%EC%9E%90%EC%9D%B8%20%ED%8C%A8%ED%84%B4%EA%B3%BC%20%EC%9E%A1(Job)%20%EC%8B%A4%ED%96%89/k8s-adaptor-container-pattern-master.zip)
+
+어댑터 컨테이너 배포
+
+```yaml
+kubectl apply -f https://raw.githubusercontent.com/bbachi/k8s-adaptor-container-pattern/master/pod.yml
+```
+
+어댑터 컨테이너 요청 및 실행
+
+```yaml
+# kubectl port-forward adapter-container-demo 8080:3080
+
+# curl localhost:8080/logs
+[{"time":"Sat Nov 6 08:20:13 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:20:18 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:20:23 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:20:28 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:20:33 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:20:38 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:20:43 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:20:48 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:20:53 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:20:58 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:21:03 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:21:08 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:21:13 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:21:18 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:21:23 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:21:28 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:21:33 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:21:38 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:21:43 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:21:48 UTC 2021","message":"This is log"},{"time":"Sat Nov 6 08:21:53 UTC 2021","message":"This is log"}]
+```
+
+# 3. 앰배서더 컨테이너
+
+- 엠버서더(ambassador)의 뜻은 국가공무원으로 외교를 대표하는 대사를 의미
+- 앰배서더 컨테이너는 파드 외부의 서비스에 대한 액세스를 간소화하는 특수 유형
+- 파드에 앰배서더 컨테이너를 배치하여 통신을 대신해주는 역할을 소화
+- 서비스의 인증, 데이터의 변조, 감시 등의 다양한 작업이 가능
+
+![Untitled](/images/01_%ED%95%99%EC%8A%B5%EB%85%B8%ED%8A%B8_Kubernetes_%ED%8C%8C%EB%93%9C%20%EB%94%94%EC%9E%90%EC%9D%B8%20%ED%8C%A8%ED%84%B4%EA%B3%BC%20%EC%9E%A1%28Job%29%20%EC%8B%A4%ED%96%89_Untitled%202.png)
+
+github 프로젝트 예제
+
+[https://github.com/bbachi/k8s-ambassador-container-pattern.git](https://github.com/bbachi/k8s-ambassador-container-pattern.git)
+
+[k8s-ambassador-container-pattern-master.zip](%ED%8C%8C%EB%93%9C%20%EB%94%94%EC%9E%90%EC%9D%B8%20%ED%8C%A8%ED%84%B4%EA%B3%BC%20%EC%9E%A1(Job)%20%EC%8B%A4%ED%96%89/k8s-ambassador-container-pattern-master.zip)
+
+다음 명령을 사용해 클러스터에 배포
+
+```yaml
+kubectl apply -f https://raw.githubusercontent.com/bbachi/k8s-ambassador-container-pattern/master/pod.yml
+```
+
+앰배서더 컨테이너로 요청
+
+```yaml
+$ kubectl exec -it ambassador-container-demo -c ambassador-container -- curl localhost:9000
+<현재는 403으로 정상적으로 통신 불가>
+```
+
+로그에서 통신 정보 확인
+
+```yaml
+kubectl logs ambassador-container-demo main-container
+```
+
+# 4. Job과 CronJob을 활용한 파드 생성
+
+## 4.1 Job
+
+- 하나 이상의 파드를 만들고 지정된 수의 파드가 성공적으로 종료될 때까지 Pods실행을 계속 재시도
+- 작업을 삭제하면 생성한 파드가 정리
+- 작업을 일시중단하면 다시 재개될때까지 활성파드가 삭제
+- 작업을 사용하여 여러 파드를 병렬로 실행 가능
+
+job 예제 배포
+
+```yaml
+cat <<EOF | kubectl apply -f -
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi
+spec:
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: perl
+        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+      restartPolicy: Never
+  backoffLimit: 4
+EOF
+```
+
+- 비병렬 잡 : 기본값, 파드 하나만 실행되고 종료되면 완료
+- 정해진 횟수를 반복하는 잡 : .spec.completions에 0이 아닌 양수를 지정하면 정해진 횟수까지 파드가 반복적으로 실행
+- 병렬 실행가능 수를 지정 : .spec.parallelism에 0이 아닌 양수를 지정하면 정해진 갯수만큼 파드가 동시에 실행이 가능
+
+job 병렬 실행 예제
+
+```yaml
+cat <<EOF | kubectl apply -f -
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pi-parallelism
+spec:
+  completions: 5 # 목표 완료 파드 개수
+  parallelism: 2 # 동시 실행 가능 파드 개수
+  template:
+    spec:
+      containers:
+      - name: pi
+        image: perl
+        command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
+      restartPolicy: Never
+  backoffLimit: 4
+EOF
+```
+
+## 4.2 cronjob
+
+- 리눅스 시스템의 크론에서 표기하는 방법과 동일
+- 일반적으로 cronjob하나에 하나의 작업만 실행하는 것을 권장
+
+동시성 정책 설정
+
+![Untitled](/images/01_%ED%95%99%EC%8A%B5%EB%85%B8%ED%8A%B8_Kubernetes_%ED%8C%8C%EB%93%9C%20%EB%94%94%EC%9E%90%EC%9D%B8%20%ED%8C%A8%ED%84%B4%EA%B3%BC%20%EC%9E%A1%28Job%29%20%EC%8B%A4%ED%96%89_Untitled%203.png)
+
+CronJob 예제 실행
+
+```yaml
+cat <<EOF | kubectl apply -f -
+# ﻿cronjob-1.yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello-1
+spec:
+  concurrencyPolicy: Allow
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster
+          restartPolicy: OnFailure
+EOF
+```
+
+리플레이스 정책을 적용한 CronJob 예제
+
+```yaml
+cat <<EOF | kubectl apply -f -
+# ﻿cronjob-1.yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello-2
+spec:
+  concurrencyPolicy: Replace
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello
+            image: busybox
+            args:
+            - /bin/sh
+            - -c
+            - date; echo Hello from the Kubernetes cluster; sleep 100;
+          restartPolicy: OnFailure
+EOF
+```

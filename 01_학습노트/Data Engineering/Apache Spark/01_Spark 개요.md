@@ -1,0 +1,114 @@
+# Spark 개요
+
+## 정의
+
+데이터 센터나 클라우드에서 대규모 분산 빅데이터 처리를 하기위해 설계된 통합형 엔진
+
+실질적인 업계 표준 (De-fecto standard)
+
+### Spark의 구성요소
+
+![Untitled](/images/01_%ED%95%99%EC%8A%B5%EB%85%B8%ED%8A%B8_Data%20Engineering_Apache%20Spark_Spark%20%EA%B0%9C%EC%9A%94_Untitled.png)
+
+- Spark SQL : 대용량 Data warehousing
+- Spark Streaming : Real-time data analytics
+- MLlib : Machine Learning
+- GraphX : Graph data processing
+
+### Spark Architecture
+
+- 실제 코드는 고도로 경량화된 바이트코드로 변환되어 클러스터 전체에 나뉘어 워커 노드의 JVM에서 실행
+- **SparkApplication** : 스파크 위에서 돌아가는 사용자 프로그램, Driver Program과 Executor로 구성
+    - Driver Program은 SparkSession객체를 만듬
+    - SparkSession이 만들어지면 API를 통해 연산작업을 수행할 수 있음
+- 스파크 드라이버는 클러스터 매니저와 통신하며 스파크 익스큐터들을 위해 필요한 자원들을 요청하고 작업을 DAG형태로 변환, 스케줄링, 분배
+- SparkSession : 모든 스파크 연산과 데이터에 대한 통합 연결 채널 SparkContext, SQLContext 통합, <u>**SparkApplication에서는 사용자가 직접 객체를 생성하여야 함**</u>
+- Spark Executor : 클러스터의 각 워커노드에서 동작되며 태스크를 실행하는 역할, 배포모드에서 노드당 하나의 익스큐터만 실행됨
+- Job : 스파크 액션(save, collect, …)에 대한 응답으로 생성되는 여러 Task로 이루어진 병렬연산, 본질적으로 TaskPlan이 됨, 액션 실행마다 잡이 생성
+    - 드라이버는 스파크 어플리케이션을 하나 이상의 잡으로 변환
+- Stage : 각 Job은 스테이지라 불리는 서로 의존성을 가지는 다수의 태스크 모음을 가지고 있음, 최소 수행단위
+    - 작업이 연속적 혹은 병렬적으로 수행되는지에 맞춰 스테이지에 해당되는 DAG노드가 생성
+- Task : Spark Executor로 부내지는 작업 실행의 가장 기본적인 단위
+
+![Untitled](/images/01_%ED%95%99%EC%8A%B5%EB%85%B8%ED%8A%B8_Data%20Engineering_Apache%20Spark_Spark%20%EA%B0%9C%EC%9A%94_Untitled%201.png)
+
+1. 스파크 어플리케이션은 스파크 클러스터의 병렬 작업들을 조율하는 하나의 드라이버 프로그램으로 이루어짐
+2. 드라이버는 SparkSession객체를 통해 클러스터의 분산 컴포넌트(Spark Executor)에 접근
+
+### 배포모드
+
+- 여러 다른환경에서 다른 설정으로 돌아갈 수 있도록 다양한 배포모드를 지원
+- 클러스터 매니저는 각 배포모드의 워커노드를 관리하는 모듈의 추상화
+- 클러스터 매니저의 종류 : 내장단독, 하둡 얀(Yarn), Mesos, Kubernetes
+
+※ Hadoop Yarn : 분산환경에서의 자원관리를 담당하는 모듈, 수많은 노드로 구성된 클러스터에서 작업들을 관리하고 특정작업에 사용할 자원을 배분하는 역할
+
+### 분산 데이터와 파티션
+
+- 실제 물리적인 데이터는 HDFS나 클라우드 저장소에 존재하는 파티션이되어 저장소 전체에 분산
+- 스파크는 각 파티션을 고수준 논리데이터 추상화로 바라봄
+
+### 스파크의 활용
+
+- 클러스터 전체에 걸쳐 분산된 대규모 데이터세트의 병렬처리
+- 데이터 탐색이나 시각화를 위한 일회성이나 대화형 질의 수행
+- MLlib를 이용해 머신러닝 모델을 구축, 훈련, 평가
+- 다양한 데이터 스트림으로부터 끝에서 끝까지 데이터 파이프라인 구현
+
+### 설치 및 요소
+
+스파크 다운로드 : [Downloads | Apache Spark](https://spark.apache.org/downloads.html)
+
+pypi
+
+```bash
+pip install pyspark
+```
+
+![Untitled](/images/01_%ED%95%99%EC%8A%B5%EB%85%B8%ED%8A%B8_Data%20Engineering_Apache%20Spark_Spark%20%EA%B0%9C%EC%9A%94_Untitled%202.png)
+
+**README.md**
+
+스파크 문서의 링크와 설정 가이드, 스파크 기여 등의 정보를 포함
+
+**bin**
+
+스파크셀들을 포함해서 (spark-sql, pyspark, spark-shell, sparkR) 스파크와 상호작용할 수 있는 대부분의 스크립트를 가지고 있음, spark-submit을 써서 단독 스파크 어플리케이션을 제출
+
+**sbin**
+
+다양한 배포모드에서 클러스터의 스파크 컴포넌트들을 시작하고 중지하기 위한 관리 목적의 도구
+
+**kubernetes**
+
+쿠버네티스 클러스터에서 쓰는 스파크를 위한 도커 이미지 제작을 위한 Dockerfile 포함
+
+**data**
+
+MLlib, 정형화 프로그래밍, GraphX 등에서 입력으로 사용되는 *.txt파일들
+
+**examples**
+
+스파크 예제코드들로 자바, 파이썬, R, 스칼라에 대한 내용을 포함
+
+### 스파크 연산과 지연평가
+
+**Transformation**
+
+불변성의 특징을 가진 원본 데이터를 수정하지 않고 하나의 스파크 데이터 프레임을 새로운 데이터 프레임으로 변형 → select, filter, join, groupBy, orderBy
+
+트랜스포메이션의 결과는 즉시 계산되지 않으며 계보(Lineage)라 불리는 형태로 기록되어 트랜스포메이션끼리 재배열하거나 합쳐 최적화
+
+지연평가 : 액션이 실행되는 시점이나 데이터에 실제 접근하는 시점까지 실행을 미루는 전략
+
+groupBy()나 orderBy()의 경우 넓은 의미의 트랜스포메이션을 수행 : 다른 파티션으로부터 데이터를 읽어 들여서 합치고 디스크에 씀
+
+**Action**
+
+기록된 모든 트랜스포메이션의 지연 연산을 발동 → show, take, count, collect, save
+
+### Spark UI
+
+GUI를 통하여 SparkApplication을 살표볼 수 있게 해주며 다양한 레벨(Job, Stage, Task)에서 확인 가능
+
+pyspark 혹은 spark-shell 실행시 4040포트로 접근이 가능
