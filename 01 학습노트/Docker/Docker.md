@@ -624,8 +624,8 @@ sudo docker restart WP
 
 마지막으로 127.0.0.1로 접속하여 워드프레스 설치를 웹 브라우저 화면으로 진행하면 된다.
 
-[Dockerfile](Docker/Dockerfile%2099931e65d573487a9b4b8b406533bff8.md)
+[Dockerfile](Dockerfile.md)
 
-[Private Registry](Docker/Private%20Registry%20a7a081a3dcfa417c940e7ba4cfe6abed.md)
+[Private Registry](Private%20Registry.md)
 
-[Image Pull&Push](Docker/Image%20Pull&Push%2041437509cf2041849f995183824c3525.md)
+[Image Pull&Push](Image%20Pull&Push.md)

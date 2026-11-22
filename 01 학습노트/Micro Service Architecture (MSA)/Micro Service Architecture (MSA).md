@@ -57,10 +57,10 @@ URI 구조
 
 OIDC Path / JWT 토큰
 
-[마이크로서비스 디자인패턴](Micro%20Service%20Architecture%20(MSA)/%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4%203b587b9b012f49759f445a1268b2e057.md)
+[마이크로서비스 디자인패턴](마이크로서비스%20디자인패턴.md)
 
-[Chain of failure](Micro%20Service%20Architecture%20(MSA)/Chain%20of%20failure%20f8edc3a8bf00426ba5988b6037ecb32e.md)
+[Chain of failure](Chain%20of%20failure.md)
 
-[콘웨이의 법칙](Micro%20Service%20Architecture%20(MSA)/%EC%BD%98%EC%9B%A8%EC%9D%B4%EC%9D%98%20%EB%B2%95%EC%B9%99%208ba4e2b6609e480ca56af8d5a1d55e23.md)
+[콘웨이의 법칙](콘웨이의%20법칙.md)
 
 [Service Mesh](Micro%20Service%20Architecture%20(MSA)/Service%20Mesh%20ceb45fc5cde54c1b9d8458b238a25bed.md)
