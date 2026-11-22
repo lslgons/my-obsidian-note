@@ -13,15 +13,58 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01 학습노트/영어/영어 2217f90853824f5f9e5035aa911132bc.md",
+                "file": "01 학습노트/영어/노트/노트 #2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "영어 2217f90853824f5f9e5035aa911132bc"
+              "title": "노트 #2"
+            }
+          },
+          {
+            "id": "a16ea820caa5839b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01 학습노트/영어/노트/구동사.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "구동사"
+            }
+          },
+          {
+            "id": "04deb87cdeeec53a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01 학습노트/영어/노트/단어.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "단어"
+            }
+          },
+          {
+            "id": "8cad4ef4b7c603d1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "01 학습노트/AZ-104/6 Azure리소스 모니터링 및 백업 ade9a96540e64f6ca574b55f46750243.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "6 Azure리소스 모니터링 및 백업 ade9a96540e64f6ca574b55f46750243"
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -208,33 +251,45 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "76578bce687f4c75",
+  "active": "8cad4ef4b7c603d1",
   "lastOpenFiles": [
-    "01 학습노트/01. 학습노트 목차.md",
-    "01 학습노트/Scala/Scala 개요 e8b32900f45a44f8adb6b3b190db345a.md",
-    "01 학습노트/Scala/함수형 객체 98b5d1bfa98e4e6fa0221ad40da4de81.md",
-    "01 학습노트/Scala/타입과 연산 84822abcae2647528389525cb60841a2.md",
-    "01 학습노트/Scala",
-    "01 학습노트/영어/백업/노트 정리 (Phase 1~2)/2025 Phase 2 20cff97ae113809fa7fddd69b3dd10dc.md",
-    "01 학습노트/영어/토익 스피킹/Part3 표현 16ad3cf0c7c74b349aa25ede31e1c345.md",
-    "01 학습노트/영어/토익 스피킹/Part 2 표현 58beaa297631495a98606145fa2b6444.md",
+    "01 학습노트/AZ-104/5 Azure관리자를 위한 가상 네트워크 구성 및 관리.md",
+    "01 학습노트/AZ-104/4 Azure컴퓨팅 리소스 배포 및 관리.md",
+    "01 학습노트/AZ-104/3 Azure내 스토리지 구현 및 관리/3 Azure내 스토리지 구현 및 관리.md",
+    "01 학습노트/AZ-104/2 Azure내 ID 및 거버넌스 관리/2 Azure내 ID 및 거버넌스 관리.md",
+    "01 학습노트/AZ-104/1 Azure관리자 필수조건/1 Azure관리자 필수조건.md",
+    "01 학습노트/AZ-104/AZ-104.md",
+    "01 학습노트/AZ-104/3 Azure내 스토리지 구현 및 관리/연습문제 f02710e8364f492ab6955041da4c9ba6.md",
+    "01 학습노트/AZ-104/2 Azure내 ID 및 거버넌스 관리/연습문제 4ed87480594f421d9325ed68a8e1919d.md",
+    "01 학습노트/AZ-104/2 Azure내 ID 및 거버넌스 관리/Untitled.png",
+    "01 학습노트/AZ-104/1 Azure관리자 필수조건/연습문제 2a1c3ace8ca3447f8595c3aff2af7d60.md",
+    "01 학습노트/AZ-104/1 Azure관리자 필수조건/Untitled.png",
+    "01 학습노트/AWS/AWS.md",
+    "01 학습노트/AWS/Untitled 1.png",
+    "01 학습노트/AWS/Untitled.png",
+    "영어/노트.md",
+    "01 학습노트/영어/영어 목차.md",
+    "영어",
+    "01 학습노트/영어/노트/단어.md",
+    "01 학습노트/영어/토익 스피킹/Part3 표현.md",
+    "01 학습노트/영어/토익 스피킹/Part 2 표현.md",
+    "01 학습노트/영어/토익 스피킹/토익 스피킹.md",
+    "01 학습노트/영어/노트/구동사.md",
+    "01 학습노트/영어/노트/노트 #3.md",
+    "01 학습노트/영어/노트/노트 #2 (Workbook).md",
+    "01 학습노트/영어/노트/노트 #2.md",
+    "01 학습노트/영어/백업/백업.md",
     "01 학습노트/영어/백업/노트 정리 (Phase 1~2) 219ff97ae1138064a025caba03e9da85.md",
-    "01 학습노트/영어/백업/노트 정리 (Phase 1~2)",
     "01 학습노트/영어/백업/2025 phase4 221ff97ae113808d8646fba3e613fc9e.md",
     "01 학습노트/영어/백업/2025 Phase 3 219ff97ae1138030befdf651d2bbb479.md",
-    "01 학습노트/영어/노트 #2/노트 #2 (Workbook) 230ff97ae113803194b5fa87536e9d59.md",
-    "01 학습노트/영어/노트 #1/노트 #1 (Workbook) 230ff97ae113801181b0ddc1f40af719.md",
-    "01 학습노트/영어/토익 스피킹 be5fc7a6865f4a8eb7bf3fa6124980a1.md",
+    "01 학습노트/영어/백업/노트 정리 (Phase 1~2)/2025 Phase 2 20cff97ae113809fa7fddd69b3dd10dc.md",
+    "01 학습노트/영어/노트/노트 #1 (Workbook).md",
+    "01 학습노트/Scala",
+    "01 학습노트/영어/백업/노트 정리 (Phase 1~2)",
     "01 학습노트/영어/토익 스피킹",
-    "01 학습노트/영어/백업 20cff97ae113802f8537eb7de1e5d495.md",
     "01 학습노트/영어/백업",
-    "01 학습노트/영어/단어 220ff97ae113803cb036e1249380d5e7.md",
-    "01 학습노트/영어/노트 #3 244ff97ae11380498187e7057ad95ec5.md",
-    "01 학습노트/영어/노트 #2 230ff97ae1138018b740e9c6cca1a823.md",
     "01 학습노트/영어/노트 #2",
-    "01 학습노트/영어/노트 #1 230ff97ae113802abc57f7b73508675c.md",
-    "01 학습노트/영어/노트 #1",
-    "01 학습노트/영어/구동사 243ff97ae113805f9d94c37b277d14ac.md",
+    "01 학습노트/영어/노트",
     "01 학습노트/영어",
     "01 학습노트/Spring boot/Tips/Untitled 1.png",
     "01 학습노트/Spring boot/Tips/Untitled.png",
@@ -242,20 +297,8 @@
     "01 학습노트/Spring boot/Spring Data/Untitled.png",
     "01 학습노트/Spring boot/Spring Data/Untitled 4.png",
     "01 학습노트/Spring boot/Spring Data/Untitled 3.png",
-    "01 학습노트/Spring boot/Spring Data/Untitled 2.png",
-    "01 학습노트/Spring boot/Spring Data/Untitled 1.png",
-    "01 학습노트/Spring boot/Spring Cloud Stream/Untitled.png",
-    "01 학습노트/Spring boot/@SpringBootApplication/Untitled.png",
-    "01 학습노트/Spring boot/Tips d25de24dbdd440228d3aeafc38444c5b.md",
     "01 학습노트/Spring boot/Tips",
-    "01 학습노트/Spring boot/Spring WebFlux c14aa15bb2d94e26965bfbdf457d2330.md",
     "01 학습노트/Spring boot/Spring WebFlux",
-    "01 학습노트/Spring boot/Spring Fox c762d822b52f4306b4d04c9f41dce6d6.md",
-    "01 학습노트/Spring boot/Spring Data 92dac0564a3545b58591ac5ded2b14b2.md",
-    "01 학습노트/Spring boot/Spring Data",
-    "01 학습노트/Spring boot/Spring Cloud Stream 8a203675bd3642e6ac112d62416c208a.md",
-    "01 학습노트/Spring boot/@SpringBootApplication 9345004647844cafabbc464741730b0f.md",
-    "01 학습노트/Micro Service Architecture (MSA)/콘웨이의 법칙 8ba4e2b6609e480ca56af8d5a1d55e23.md",
     "무제.canvas"
   ]
 }
