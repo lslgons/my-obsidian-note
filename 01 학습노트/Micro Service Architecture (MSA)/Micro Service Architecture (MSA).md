@@ -63,4 +63,4 @@ OIDC Path / JWT 토큰
 
 [콘웨이의 법칙](콘웨이의%20법칙.md)
 
-[Service Mesh](Micro%20Service%20Architecture%20(MSA)/Service%20Mesh%20ceb45fc5cde54c1b9d8458b238a25bed.md)
+[Service Mesh](Service%20Mesh.md)
